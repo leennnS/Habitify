@@ -37,18 +37,19 @@ Make sure you have the following installed:
 - moment
 - mysql2
 - nodemon
+- express-session
   
 ### Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/leennnS/habit-tracker.git
+   git clone https://github.com/leennnS/Habitify.git
    ```
 
 2. Navigate to the project folder:
 
    ```bash
-   cd web-project-habitTracker
+   cd Habitify
    ```
 
 3. Install dependencies:
