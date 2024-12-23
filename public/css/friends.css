@@ -1,0 +1,52 @@
+ /* Custom CSS for hover effect and modern look */
+ .friend-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.friend-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.friend-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.friend-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.friend-info .name-email {
+    margin-left: 15px;
+}
+
+.friend-info .name-email span {
+    display: block;
+}
+
+.friend-info .name-email .name {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.friend-info .name-email .email {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.friend-info .friends-since {
+    font-size: 0.9rem;
+    color: #999;
+    text-align: right;
+}

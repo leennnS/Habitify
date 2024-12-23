@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Habitify</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/css/signup.css" rel="stylesheet" />
+</head>
+
+<body>
+    <section>
+        <div class="card">
+            <h2 class="text-center">Create Your Account</h2>
+            <% if (typeof error !== 'undefined') { %>
+                <p class="error-message"><%= error %></p>
+            <% } %>
+            <form action="/api/users/signup" method="POST">
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" placeholder="Username" required />
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Email" required />
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required />
+                </div>
+                <button type="submit" class="btn btn-custom btn-block">Sign Up</button>
+            </form>
+            <div class="footer">
+                <p>Already have an account? <a href="/login" class="link">Log in</a></p>
+            </div>
+        </div>
+    </section>
+    <div class="notification" id="notification">Sign Up Successful!</div>
+    <footer>
+        <%- include('partials/footer') %>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .profile-header {
+            background-image: url('../images/backgroundImage.jpg');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .profile-header img {
+            width: 180px;
+            height: 180px;
+            border: 6px solid #ffffff;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: -90px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-header img:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-details {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .profile-details h2 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .profile-details p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .habits-container,
+        .badges-container {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .habits-container h3,
+        .badges-container h3 {
+            color: #030e1377;
+            font-weight: bold;
+        }
+
+        .habit-item {
+            padding: 10px 15px;
+            background-color: #e9f7ff;
+            border: 1px solid #d6eaf8;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .habit-item .habit-icon {
+            font-size: 1.5rem;
+            color: #2575fc;
+        }
+
+        .badge-item {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .badge-item img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .badge-item span {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #555;
+        }
+        .header .profile-img {
+    width: 40px;
+    height: 40px;         /* Adjust to match the width */
+    object-fit: cover;    /* Ensures the image doesn't stretch */
+    border-radius: 50%;   /* Makes the image circular */
+    margin-left: 20px;    /* Adds spacing to the left of the image */
+}
+ 
+
+/* Custom Edit Button */
+/* Custom Edit Button */
+.custom-edit-btn {
+    background-color: #ffc1c1a9; /* Custom Background Color */
+    color: white; /* Text Color */
+    border: 2px solid #ffc1c1a9; /* Border Color */
+    border-radius: 50px; /* More Rounded (Oval Shape) */
+    padding: 10px 30px; /* Adjusted Padding for Oval Shape */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shading */
+    transition: all 0.3s ease; /* Smooth Hover Effect */
+}
+
+.custom-edit-btn:hover {
+    background-color: #df74b671; /* Darker Color on Hover */
+    border-color: #df74b671;;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Stronger Shadow on Hover */
+}
+
+/* Custom Delete Button */
+.custom-delete-btn {
+    background-color: #504744; /* Orange Red Background */
+    color: white; /* Text Color */
+    border: 2px solid #4a403d; /* Border Color */
+    border-radius: 50px; /* More Rounded (Oval Shape) */
+    padding: 10px 30px; /* Adjusted Padding for Oval Shape */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shading */
+    transition: all 0.3s ease; /* Smooth Hover Effect */
+}
+
+.custom-delete-btn:hover {
+    background-color: #60210879; /* Darker Red on Hover */
+    border-color: #60210879;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Stronger Shadow on Hover */
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <%- include('partials/header') %>
+    </header>
+    
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <% if (user.profile_picture) { %>
+                <img src="<%= user.profile_picture %>" alt="Profile Picture">
+            <% } else { %>
+                <img src="/images/default.jpg" alt="Default Profile Picture">
+            <% } %>
+            <h2><%= user.name %></h2>
+            <p>Member since: <%= user.created_at %></p>
+        </div>
+        
+
+        <!-- Profile Details -->
+        <div class="profile-details">
+            <div class="detail-item">
+                <span class="detail-label">User ID:</span>
+                <span><%= user.id %></span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Email:</span>
+                <span><%= user.email %></span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Points:</span>
+                <span><%= user.points %></span>
+            </div>
+            <% if(user.id === loggedId) { %>
+                <!-- Edit and Delete Buttons -->
+                <div class="text-center mt-3">
+                    <a href="/profile/update/<%= user.id %>" class="custom-edit-btn">Edit Profile</a>
+                    <a href="/api/users/delete/<%= user.id%>" class="custom-delete-btn">Delete</a>
+                </div>
+            <% } %>
+        </div>
+
+        <!-- Completed Habits -->
+        <div class="habits-container">
+            <h3>Completed Habits</h3>
+            <% if (habits && habits.length > 0) { %>
+                <% habits.forEach(habit => { %>
+                    <% if (habit.completed === 1) { %>
+                        <div class="habit-item">
+                            <i class="habit-icon bi bi-check-circle"></i>
+                            <span><%= habit.habit_name %></span>
+                        </div>
+                    <% } %>
+                <% }); %>
+            <% } else { %>
+                <p>No habits completed yet. Keep up the effort!</p>
+            <% } %>
+            
+            <!-- Earned Badges -->
+            <div class="badges-container">
+                <h3>Badges</h3>
+                <% if (badges && badges.length > 0) { %>
+                    <% badges.forEach(badge => { %>
+                        <div class="badge-item d-flex align-items-center mb-2">
+                            <i class="fas fa-trophy text-warning me-2" style="font-size: 1.5rem;"></i>
+                            <span><%= badge.badge_name %></span>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p>No badges earned yet. Keep up the good work!</p>
+                <% } %>
+            </div>
+            
+        
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <footer>
+        <%- include('partials/footer') %>
+    </footer>
+</body>
+</html>

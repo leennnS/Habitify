@@ -1,0 +1,88 @@
+body {
+    background-image: url('../images/backgroundImage.jpg');
+    background-size: cover;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-top: 50px;
+    padding: 30px;
+    width: 350px;
+}
+
+.card h2 {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border: none;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.6); /* Soft pink glow */
+    outline: none;
+}
+
+.btn-custom {
+    background: linear-gradient(100deg, #EFD3C5, #BCCCCC); /* Gradient button */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-custom:hover {
+    box-shadow: 0 5px 15px rgba(145, 201, 247, 0.5); /* Light blue glow on hover */
+    transform: scale(1.05);
+}
+
+.link {
+    font-size: 14px;
+    color: #91c9f7;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.notification {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    text-align: center;
+}

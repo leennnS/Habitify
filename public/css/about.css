@@ -1,0 +1,49 @@
+body {
+    background-image: url('../images/backgroundImage.jpg');
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    background-size: cover;
+    /* Make the image cover the entire page */
+    background-position: center;
+    /* Center the image */
+    /* Customize background color */
+    color: var(--text-color, #333);
+    /* Customize text color */
+    font-family: Arial, sans-serif;
+}
+
+#about-us {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.content-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+}
+
+h2,
+h3 {
+    color: #E75480
+        /* Customize header color */
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #E75480;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: grey;
+}

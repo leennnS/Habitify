@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/css/index.css" rel="stylesheet" />
+
+    <title>Habit Tracker</title>
+
+</head>
+
+<body>
+    <!-- Background -->
+    <div class="background">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <div class="container">
+                <a class="navbar-brand" href="#">Habitify</a>
+                <div class="ml-auto">
+                    <a href="/login" class="btn btn-link ">Log in</a>
+                    <a href="/signup" class="btn btn-link ">Sign up</a>
+                    <a href="/about" class="btn btn-link ">About us</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Section -->
+        <div class="container text-center text-white mt-5">
+            <div class="row align-items-center">
+                <!-- Left Section: Checklist -->
+                <div class="col-md-5">
+                    <div class="card p-4">
+                        <h3 class="text-dark">Say goodbye to lazy days!</h3>
+                        <p class="text-muted">Make this YOUR year, every day matters...</p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><input type="checkbox" checked> <span style="color:black">Track your daily
+                                    routine</span></li>
+                            <li class="mb-2"><input type="checkbox" checked> <span style="color:black">Stay on track
+                                    with your goals</span></li>
+                            <li class="mb-2"><input type="checkbox" checked> <span style="color:black">Reach new
+                                    milestones</span></li>
+                            <li><input type="checkbox"> <span style="color:black">Create an account to experience
+                                    it</span></li> <!-- Last checkbox not checked -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Section: Call to Action -->
+                <div class="col-md-7 d-flex align-items-center">
+                    <div>
+                        <h1 class="font-weight-bold">Beautify your life now<br>with <span class="text-primary"><span
+                                    class="customcolors">HABITIFY</span></span></h1>
+                        <a href="/signup" class="btn custom-button btn-lg mt-3">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pjaaA8dDz/1aOADz/lDE6UlUYdI1W8AwSxsDh3b9eZXqD5RUhy3zKkeBIcDbl0Gi"
+            crossorigin="anonymous"></script>
+
+        <%- include('partials/footer') %>
+</body>
+
+</html>
